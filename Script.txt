@@ -1,0 +1,27 @@
+SCRIPTS
+----SMO---
+java -Xmx5048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.functions.SMO -t data/bestbetter.arff -c 1
+
+----NaiveBayes---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.bayes.NaiveBayes -t data/bestbetter.arff -c 1 
+
+----J48---
+java -Xmx5048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.trees.J48 -t data/bestbetter.arff -c 1
+
+----BayesNet---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.bayes.BayesNet -t data/bestbetter.arff -c 1 
+
+----KStar---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.lazy.KStar -t data/bestbetter.arff -c 1 
+
+----AttributeSelectedClassifier(classifier:J48)---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.meta.AttributeSelectedClassifier -t data/bestbetter.arff -c 1 
+
+----AttributeSelectedClassifier(classifier:NaiveBayes)---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.meta.AttributeSelectedClassifier -t data/bestbetter.arff -c 1 -W weka.classifiers.bayes.NaiveBayes --
+
+----RandomForest---
+java -Xmx5048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.trees.RandomForest -t data/bestbetter.arff -c 1
+
+----AttributeSelectedClassifier(classifier:SMO)---
+java -Xmx6048m -classpath $CLASSPATH:weka.jar:libsvm.jar weka.classifiers.meta.AttributeSelectedClassifier -t data/bestbetter.arff -c 1  -W weka.classifiers.functions.SMO --
